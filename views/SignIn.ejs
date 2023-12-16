@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form</title>
+ <link rel="stylesheet" href="../style/signup.css">
+</head>
+<body>
+    <form class="signup-form" action="user/signin" method="post" >
+        <h2>Signup</h2>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error-message" id="email-error" style="display: none; color: red;">Please enter a valid email</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error-message" id="password-error" style="display: none; color: red;">Please enter a password</div>
+      </div>
+  
+      <div class="button-container">
+        <button onclick="validateForm()">SigIn</button>
+      </div>
+      <p>Don't have an account? <a href="signup">Sign up</a></p>
+      <p>Sign in with Admin <a href="adminlogin">Sign up</a></p>
+    </form>
+    <%- include("Loading.ejs") %>
+    <script>
+      const loadingComponent = document.getElementById('loadingOverlay');
+      loadingComponent.style.display = 'none';
+      
+      function validateForm() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+  
+ 
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+  
+        emailError.style.display = !email ? 'block' : 'none';
+        passwordError.style.display = !password ? 'block' : 'none';
+  
+        if (!email || !password) {
+          return;
+        }
+          loadingComponent.style.display = 'flex';
+        // Here you can add code to submit the form or perform further actions
+      
+      }
+    </script>
+  </body>
+</html>

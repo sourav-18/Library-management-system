@@ -1,0 +1,35 @@
+.populerContainer{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.populerContainer .cardContainer{
+    display: flex;
+    justify-content: space-between;
+  width: 75%;
+  align-self: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.populerContainer .card{
+    text-decoration: none;
+    color: black;
+    /* background-color: #073b4c; */
+    width: 220px;
+    height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    
+}
+.populerContainer .card img {
+   width: 100%;
+   height: 75%;
+   object-fit: cover;
+   border-top-right-radius: 5px;
+   border-top-left-radius: 5px;
+}
+.populerContainer .card .cardtext{
+    padding: 5px;
+    /* color: white; */
+}

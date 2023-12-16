@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form</title>
+ <link rel="stylesheet" href="../style/signup.css">
+</head>
+<body>
+    <form class="signup-form" action="user/signup" method="post" >
+        <h2>Signup</h2>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <div class="error-message" id="name-error" style="display: none; color: red;">Please enter your name</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error-message" id="email-error" style="display: none; color: red;">Please enter a valid email</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error-message" id="password-error" style="display: none; color: red;">Please enter a password</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="confirm-password">Re-enter Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <div class="error-message" id="confirm-password-error" style="display: none; color: red;">Passwords do not match</div>
+      </div>
+  
+      <div class="button-container">
+        <button onclick="validateForm()">Signup</button>
+      </div>
+      <p>Already have an account? <a href="/signin">Sign in</a></p>
+    </form>
+    <%- include("Loading.ejs") %>
+    <script>
+       const loadingComponent = document.getElementById('loadingOverlay');
+      loadingComponent.style.display = 'none';
+      function validateForm() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+  
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const confirmPasswordError = document.getElementById('confirm-password-error');
+  
+        nameError.style.display = !name ? 'block' : 'none';
+        emailError.style.display = !email ? 'block' : 'none';
+        passwordError.style.display = !password ? 'block' : 'none';
+        confirmPasswordError.style.display = password !== confirmPassword ? 'block' : 'none';
+  
+        if (!name || !email || !password || password !== confirmPassword) {
+          return;
+        }
+        loadingComponent.style.display = 'flex';
+        // Here you can add code to submit the form or perform further actions
+       
+      }
+    </script>
+  </body>
+</html>

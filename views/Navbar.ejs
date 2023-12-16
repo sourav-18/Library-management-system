@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/Navbar.css">
+ 
+</head>
+<body>
+    <nav class="navbar">
+
+        <h3 class="navbar-title">Librario Mate</h3>
+        <a class="small-screen open">
+         <i></i>
+        </a>
+        <div class="navbar-links ">
+         <a class="close">
+          <i></i>
+         </a>
+          <ul class="big-screen">
+            <li><h4>Librario Mate</h4></li>
+            <li><a class="link active"  href="#">Home</a></li>
+            <li><a class="link" href="#">About</a></li>
+            <li><a class="link" href="#">Profile</a></li>
+            <li><a class="link" href="#">Sign Out</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+      <script>
+       const link = document.querySelectorAll(".link");
+      const navLink=document.querySelector(".navbar-links")
+       const open=document.querySelector(".open")
+       const close=document.querySelector(".close")
+
+       open.addEventListener("click",()=>{
+        navLink.classList.add("link-show")
+        navLink.classList.remove("link-hide")
+       })
+       close.addEventListener("click",()=>{
+        navLink.classList.add("link-hide")
+        navLink.classList.remove("link-show")
+       })
+const handleActive = (val) => {
+  link.forEach((item, index) => {
+    if (val === index) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+};
+
+link.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    handleActive(index);
+  });
+});
+</script>     
+</body>
+</html>

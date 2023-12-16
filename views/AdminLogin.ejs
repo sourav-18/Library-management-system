@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form</title>
+ <link rel="stylesheet" href="../style/signup.css">
+</head>
+<body>
+    <form class="signup-form" action="admin/signin" method="post" >
+        <h2>SignIn</h2>
+  
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <div class="error-message" id="name-error" style="display: none; color: red;">Please enter your name</div>
+          </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error-message" id="password-error" style="display: none; color: red;">Please enter a password</div>
+      </div>
+  
+      <div class="button-container">
+        <button onclick="validateForm()">SigIn</button>
+      </div>
+      <p>Login With User <a href="signin">Signin</a></p>
+    </form>
+  
+    <%- include("Loading.ejs") %>
+    <script>
+       const loadingComponent = document.getElementById('loadingOverlay');
+      loadingComponent.style.display = 'none';
+      function validateForm() {
+        console.log('first')
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+  
+ 
+        const nameError = document.getElementById('name-error');
+        const passwordError = document.getElementById('password-error');
+        
+        nameError.style.display = !name ? 'block' : 'none';
+        passwordError.style.display = !password ? 'block' : 'none';
+  
+        if (!name || !password) {
+          return;
+        }
+  
+        // Here you can add code to submit the form or perform further actions
+        loadingComponent.style.display = 'flex';
+      }
+    </script>
+  </body>
+</html>

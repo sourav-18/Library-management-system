@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Book</title>
+<link rel="stylesheet" href="../style/addBook.css">
+</head>
+<body>
+    <form id="bookForm" action="/admin/book" method="post" enctype="multipart/form-data">
+    <h1>Add Book</h1>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <span>Please fill in the name</span>
+
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" required>
+    <span>Please fill in the description</span>
+
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author" required>
+    <span>Please fill in the author</span>
+
+    <label for="stock">Stock</label>
+    <input type="number" id="stock" name="stock" required>
+    <span>Please fill in the stock</span>
+
+    <label for="image">Image</label>
+    <input type="file" id="image" name="book_image" accept="image/*" required>
+    <span>Please upload an image</span>
+
+    <button type="submit">Create</button>
+  </form>
+  <%- include("Loading.ejs") %>
+<script src="../js/addBook.js"></script>
+</body>
+</html>

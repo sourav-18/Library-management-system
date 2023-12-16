@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Alert</title>
+  <style>
+    /* Your existing CSS styles */
+    /* ... */
+    
+    .alert {
+      display: none;
+      position: fixed;
+      top: -100px; /* Initially above the viewport */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f44336;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      animation: slideDown 0.5s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      0% {
+        top: -100px;
+      }
+      100% {
+        top: 20px; /* Position from top */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="alert" id="animatedAlert">This is an animated alert!</div>
+
+  <script>
+    function showAlert() {
+      const alertBox = document.getElementById('animatedAlert');
+      alertBox.style.display = 'block';
+
+      setTimeout(function() {
+        alertBox.style.display = 'none';
+      }, 3000); // Hide alert after 3 seconds
+    }
+
+    // Call showAlert function when needed (e.g., button click, page load, etc.)
+    showAlert();
+  </script>
+</body>
+</html>
