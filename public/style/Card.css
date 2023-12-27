@@ -1,0 +1,105 @@
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+.cardContainer .card{
+    width: 13em;
+    height: 16.5em;
+    margin: 0.8em;
+    /* border: 1px solid; */
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+
+}
+.cardContainer .card:hover{
+    transform: translateY(-3%) !important;
+}
+.cardContainer .card .cardimage{
+    width: 100%;
+    height: 50%;
+}
+.cardContainer .card img{
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    object-fit: cover;
+}
+ .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: 1s ease-in-out;
+    margin-bottom: 1em;
+  }
+  .heading h2{
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin: 0em 0.5em;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+  }
+  /* Style for the lines */
+.heading .line {
+  width: 30%;
+  height: 1px;
+  background-color: #ffc107;
+  }
+
+.cardContainer .cardtext h6{
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.cardContainer .cardtext p{
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+.cardContainer .cardtext{
+    height: 48%;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.btn{
+    background: #ffc107;
+    border: 1px solid;
+    padding: 0.2em 1em;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+.btn:hover{
+    background: #dda706; 
+}
+.cardContainer .cardSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+  .rating i{
+    color: #ffc107;
+  }
+  .whishlist i{
+    color: red;
+  }
+
+
+  .visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  .cardHeadingVisible{
+    transform: scale(1) !important;
+  }

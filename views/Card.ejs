@@ -1,0 +1,127 @@
+
+<html >
+<head>
+    <link rel="stylesheet" href="../style/Card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+    <div class="cardContainer">
+       <div class="heading">
+        <div class="line"></div>
+  <h2>Popular Books</h2>
+  <div class="line"></div>
+    </div>
+    <div class="cardSection">
+        
+    
+       <div class="card">
+        <div class="cardimage">
+            <img src="https://images.meesho.com/images/products/325500823/onb6s_512.webp" alt="book">
+        </div>
+        <div class="cardtext">
+            <h6>this is title</h6>
+            <p><span>author: </span><span>john doe</span></p>
+            <p class="rating">
+                rating:
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </p>
+            <p class="whishlist">
+                <i class="fa-solid fa-heart"></i>
+                34
+            </p>
+            <button class="btn">Buy now</button>
+        </div>
+       </div>
+       <div class="card">
+        <div class="cardimage">
+            <img src="../assets/Books/book1.jpg" alt="book">
+        </div>
+        <div class="cardtext">
+            <h6>this is title</h6>
+            <p><span>author: </span><span>john doe</span></p>
+            <p class="rating">
+                rating:
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </p>
+            <p class="whishlist">
+                <i class="fa-solid fa-heart"></i>
+                34
+            </p>
+            <button class="btn">Buy now</button>
+        </div>
+       </div>
+       <div class="card">
+        <div class="cardimage">
+            <img src="../assets/Books/1702215554746-sneakers.jpg" alt="book">
+        </div>
+        <div class="cardtext">
+            <h6>this is title</h6>
+            <p><span>author: </span><span>john doe</span></p>
+            <p class="rating">
+                rating:
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </p>
+            <p class="whishlist">
+                <i class="fa-solid fa-heart"></i>
+                34
+            </p>
+            <button class="btn">Buy now</button>
+        </div>
+       </div>
+       <div class="card">
+        <div class="cardimage">
+            <img src="../assets/Books/book1.jpg" alt="book">
+        </div>
+        <div class="cardtext">
+            <h6>this is title</h6>
+            <p><span>author: </span><span>john doe</span></p>
+            <p class="rating">
+                rating:
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </p>
+            <p class="whishlist">
+                <i class="fa-solid fa-heart"></i>
+                34
+            </p>
+            <button class="btn">Buy now</button>
+        </div>
+       </div>
+    </div>
+    </div>
+   <script>
+ function isTopPartInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.top <= window.innerHeight;
+}
+
+// Function to handle the scroll event
+function handleScroll() {
+
+    const Cardheading = document.querySelectorAll('.heading');
+    Cardheading.forEach((item)=>{
+
+        if(isTopPartInViewport(item)){
+            item.classList.add('cardHeadingVisible')
+        }
+    })
+  const card = document.querySelectorAll('.card');
+  card.forEach((item)=>{
+      if (isTopPartInViewport(item)) {
+        item.classList.add('visible');
+      }
+  })
+}
+
+// Event listener for scroll
+window.addEventListener('scroll', handleScroll);
+   </script>
+</body>
+</html>

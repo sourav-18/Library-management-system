@@ -1,0 +1,100 @@
+<html >
+<head>
+   <link rel="stylesheet" href="../style/ratingCard.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+    <div class="ratingContainer">
+        <div class="heading">
+            <div class="line"></div>
+      <h2>Current Rating</h2>
+      <div class="line"></div>
+        </div>
+        <div class="ratingSection">
+            <div class="ratingCard">
+                <div class="ratingImage">
+                    <img src="https://images.meesho.com/images/products/325500823/onb6s_512.webp" alt="book">
+                </div>
+                <div class="ratingText">
+                    <p>This is title</p>
+                    <p>jhon doe</p>
+                    <p>sourav das</p>
+                    <p class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+                
+            </div>
+            <div class="ratingCard">
+                <div class="ratingImage">
+                    <img src="https://images.meesho.com/images/products/325500823/onb6s_512.webp" alt="book">
+                </div>
+                <div class="ratingText">
+                    <p>This is title</p>
+                    <p>jhon doe</p>
+                    <p>sourav das</p>
+                    <p class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+                
+            </div>
+            <div class="ratingCard">
+                <div class="ratingImage">
+                    <img src="https://images.meesho.com/images/products/325500823/onb6s_512.webp" alt="book">
+                </div>
+                <div class="ratingText">
+                    <p>This is title</p>
+                    <p>jhon doe</p>
+                    <p>sourav das</p>
+                    <p class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+                
+            </div>
+            <div class="ratingCard">
+                <div class="ratingImage">
+                    <img src="https://images.meesho.com/images/products/325500823/onb6s_512.webp" alt="book">
+                </div>
+                <div class="ratingText">
+                    <p>This is title</p>
+                    <p>jhon doe</p>
+                    <p>sourav das</p>
+                    <p class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+         function isTopPartInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.top <= window.innerHeight;
+}
+        function handleScroll() {
+
+const Cardheading = document.querySelectorAll('.ratingSection');
+Cardheading.forEach((item)=>{
+
+    if(isTopPartInViewport(item)){
+        item.classList.add('ratingSectionVisible')
+    }
+})
+}
+
+// Event listener for scroll
+window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>

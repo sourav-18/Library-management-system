@@ -1,0 +1,45 @@
+.ratingContainer{
+
+}
+.ratingContainer .ratingSection{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transform: translateX(-100%);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.ratingContainer .ratingSection .ratingCard{
+    width: 14rem;
+    height: 7em;
+    background-color: #d1eaf6;
+    display: flex;
+    align-items: center;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1em;
+    margin: 0.5em;
+}
+.ratingContainer .ratingSection .ratingCard .ratingImage{
+    width: 22%;
+    height: 44%;
+    margin: 1em;
+}
+.ratingContainer .ratingSection .ratingCard .ratingImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 99px;
+    
+}
+.ratingContainer .ratingSection .ratingCard .ratingText{
+    
+}
+.ratingContainer .ratingSection .ratingCard .ratingText p{
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-size: 0.8em;
+}
+.ratingSectionVisible{
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}

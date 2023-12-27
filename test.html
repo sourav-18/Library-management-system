@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Styles for the card section */
+    body{
+      background-color: gray;
+    }
+.card-section {
+  height: 1000px; /* Adjust height to suit your content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the card */
+.card {
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Visible class for animation */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  </style>
+</head>
+<body>
+  <div class="card-section">
+    <div class="card hidden"></div>
+  </div>
+  <script>
+// Function to check if the top part of an element is in the viewport
+function isTopPartInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.top <= window.innerHeight;
+}
+
+// Function to handle the scroll event
+function handleScroll() {
+  const card = document.querySelector('.card');
+  if (isTopPartInViewport(card)) {
+    card.classList.add('visible');
+  }
+}
+
+// Event listener for scroll
+window.addEventListener('scroll', handleScroll);
+
+
+  </script>
+</body>
+</html>
