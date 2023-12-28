@@ -1,5 +1,6 @@
 .site-footer
 {
+  margin-top: 2rem;
   background-color:#26272b;
   padding:45px 0 20px;
   font-size:15px;
@@ -89,6 +90,7 @@
   {
     text-align:center
   }
+  
 }
 .social-icons
 {
@@ -157,6 +159,18 @@
     width: 750px;
 }
 }
+@media (max-width: 730px){
+  .rowFirst{
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr ;
+    gap: 0rem !important; 
+  }
+  .about{
+    grid-column: 1/3 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
 @media (min-width: 992px){
 .container {
     width: 970px;
@@ -166,4 +180,20 @@
 .container {
     width: 1170px;
 }
+}
+.rowFirst{
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.container{
+  margin: 0 auto;
+}
+.rowSecond{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
 }

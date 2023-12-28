@@ -1,0 +1,113 @@
+.wishlist_container{
+    box-sizing: border-box;
+   
+}
+.wishlist_card{
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    background-color: #fff;
+    grid-template-rows: 160px;
+    margin: 1.4rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 1s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.wishlist_card_image img{
+    width: 100%;
+    height: 100%;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+}
+.wishlist_card_info{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.book_title{
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    color: #585555;
+}
+.book_desc{
+    color: #6f6d6d;
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+}
+.author_rating{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+b{
+    color: rgb(58, 56, 56);
+    font-weight: 500;
+}
+.wishlist_container .rating{
+    color: rgb(234, 198, 17);
+}
+.wishlist_container .action{
+    align-self: center;
+}
+.wishlist_container .action button {
+    padding: 2px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #3366cc;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.wishlist_container .action button:hover {
+    background-color: #254785;
+}
+.wishlist_container .title{
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(88, 85, 85);
+    text-align: center;
+    margin: 2rem auto;
+}
+@media (max-width:750px){
+    .wishlist_container{
+        margin: 0 1rem;
+    }
+    .wishlist_card{
+        grid-template-rows: 190px;
+    }
+}
+@media (max-width:450px){
+    .wishlist_card{
+        grid-template-columns: 1fr;
+    }
+    .wishlist_container .action{
+        margin-top: 10px;
+    }
+    .buy_date{
+        position: static !important;
+    }
+    
+}
+.buy_date{
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    font-size: 0.7rem;
+    color: #585555;
+}
+@keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

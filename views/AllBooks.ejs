@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllBooks</title>
+    <link rel="stylesheet" href="../style/allBooks.css">
+</head>
+<body>
+    <%- include('Navbar.ejs') %>
+    <div class="all_book_container">
+        <form class="search_all_book_item" action="/searchbook" method="post">
+            <input type="text" name="search_text" class="book_search_input" placeholder="search...">
+            <button class="search_btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <div class="all_book_card_container">
+            <% if(typeof data!=="undifine") { %>
+                <% data.map((item ,index)=>{ %>
+                    <div class="all_book_single_card">
+                        <div class="image_card_single_book">
+                            <img class="image_single_book" src="../assets/Books/<%= item.image_url %>" loading="lazy">
+                        </div>
+                        <div class="single_card_info">
+                            <h2 class="single_card_title"><%= item.name.substr(0,23) %></h2>
+                            <div class="single_card_author_info">
+                                <p class="author_title">Author :</p>
+                                <p class="author_name"><%= item.author %> </p>
+                            </div>
+                            <div class="single_card_rating">
+                                <div class="rating_title">Rating :</div>
+                                <div class="star_icon_card">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="number_of_rating"><%= item.rating.length %></p>
+                            </div>
+                            <div class="single_card_desc">
+                                <p><%= item.description.substr(0,112) %>...</p>
+                            </div>
+                            <a class="single_card_btn" href="/book?_id=<%= item._id %>">
+                                Buy Now
+                            </a>
+                            
+                                <i class="fa-regular fa-heart add_to_wishlist_btn"></i>
+                        
+                        </div>
+                    </div>
+               <% }) %>
+        
+                <% } %>
+            
+        </div>
+    </div>
+ 
+    <script>
+        const inputBox=document.querySelector(".book_search_input")
+        inputBox.addEventListener('click',()=>{
+            console.log(inputBox)
+            inputBox.style.width="90%"
+        })
+    </script>
+</body>
+</html>

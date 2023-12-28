@@ -1,0 +1,112 @@
+.book_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 750px;
+    height: 500px;
+    margin: 1rem auto;
+    overflow: hidden;
+    animation: slideUp 1s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+@keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+.book_container .image_container {
+    flex: 1.5;
+}
+
+.book_container .image_container img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.book_container .book_info {
+    flex: 2;
+    margin-left: 20px;
+}
+
+.book_container .book_info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.book_container .book_info p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.book_container .book_info .authour {
+    font-style: italic;
+}
+
+.book_container .book_info .rating {
+    color: gold;
+}
+
+.book_container .book_info .action {
+    margin-top: 20px;
+}
+
+.book_container .book_info button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #3366cc;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-bottom: 5px;
+}
+
+.book_container .book_info button:hover {
+    background-color: #254785;
+}
+
+@media (max-width: 768px) {
+    .book_container {
+        flex-direction: column;
+        height: auto;
+        width: 90%;
+        max-width: 500px;
+    }
+    .book_container .book_info {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+    .book_container .image_container img {
+        width: 100%;
+        height: auto;
+    }
+    .book_container .book_info h2 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    .book_container .book_info p {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+    .book_container .book_info .authour {
+        font-style: italic;
+    }
+    .book_container .book_info .action {
+        margin-top: 12px;
+    }
+    .book_container .book_info button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

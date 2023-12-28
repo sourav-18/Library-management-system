@@ -1,6 +1,7 @@
 
 .coverContainer {
     background-image: url('../assets/cover2.jpg');
+    
     background-size: cover;
     background-position: center; 
     width: 100%;

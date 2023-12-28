@@ -13,34 +13,17 @@ app.use(express.static(path.resolve('public')));
 app.set('view engine', 'ejs');
 app.set("views",path.resolve("./views"))
 
-
+//frontendRoute 
 app.get('/',(req,res)=>{
-    res.render("Home")
+    const message=req.query.message || '';
+    res.render("Home",{message})
 })
-app.get('/addbook',(req,res)=>{
-    res.render("AddBook")
-})
-app.get('/signup',(req,res)=>{
-    res.render("SignUp")
-})
-app.get('/bookview',(req,res)=>{
-    res.render("BookView")
-})
-app.get('/alert',(req,res)=>{
-    res.render("Alert")
-})
-app.get('/signin',(req,res)=>{
-    res.render("SignIn")
-})
-app.get('/adminlogin',(req,res)=>{
-    res.render("AdminLogin")
-})
-app.get('/loading',(req,res)=>{
-    res.render("Loading")
-})
-
-
-
+const userFrontendRoute=require("./frontendRoutes/user")
+const adminFrontendRoute=require("./frontendRoutes/admin")
+const bothFrontendRoute=require("./frontendRoutes/both")
+app.use(userFrontendRoute)
+app.use(adminFrontendRoute)
+app.use(bothFrontendRoute)
 //router use 
 const userRoutes = require("./routes/user");
 const adminRoutes = require("./routes/admin");

@@ -6,30 +6,48 @@
 <link rel="stylesheet" href="../style/addBook.css">
 </head>
 <body>
-    <form id="bookForm" action="/admin/book" method="post" enctype="multipart/form-data">
+  <%- include('Navbar.ejs') %>
+  <div class="addbook_container">
+
+    <form id="bookForm" action="/admin/book" method="post" enctype="multipart/form-data" onsubmit="validateForm(event)">
     <h1>Add Book</h1>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
-    <span>Please fill in the name</span>
+    <div class="input-item">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" >
+      <div class="error-message" id="name-error">Please fill in the name</div>
+    </div>
 
+    <div class="input-item">
     <label for="description">Description</label>
-    <input type="text" id="description" name="description" required>
-    <span>Please fill in the description</span>
+    <input type="text" id="description" name="description" >
+    <div class="error-message" id="description-error">Please fill in the description</div>
+  </div>
 
+  <div class="input-item">
     <label for="author">Author</label>
-    <input type="text" id="author" name="author" required>
-    <span>Please fill in the author</span>
-
+    <input type="text" id="author" name="author" >
+    <div class="error-message" id="author-error">Please fill in the author</div>
+    </div>
+    
+    <div class="input-item">
     <label for="stock">Stock</label>
-    <input type="number" id="stock" name="stock" required>
-    <span>Please fill in the stock</span>
+    <input type="number" id="stock" name="stock" >
+    <div class="error-message" id="stock-error">Please fill in the stock</div>
+  </div>
+    <div class="input-item">
+    <label for="category">Category</label>
+    <input type="text" id="category" name="category" >
+    <div class="error-message" id="category-error">Please fill in the category</div>
+  </div>
 
+  <div class="input-item">
     <label for="image">Image</label>
-    <input type="file" id="image" name="book_image" accept="image/*" required>
-    <span>Please upload an image</span>
-
+    <input type="file" id="image" name="book_image" accept="image/*" >
+    <div class="error-message" id="image-error">Please upload an image</div>
+  </div>
     <button type="submit">Create</button>
   </form>
+</div>
   <%- include("Loading.ejs") %>
 <script src="../js/addBook.js"></script>
 </body>

@@ -6,33 +6,41 @@
  <link rel="stylesheet" href="../style/signup.css">
 </head>
 <body>
-    <form class="signup-form" action="user/signin" method="post" >
+  <%- include('Navbar.ejs') %>
+  <div class="formCard">
+    
+  
+    <form class="signup-form" action="/user/signin" method="post" onsubmit="validateForm(event)" >
         <h2>Signup</h2>
   
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" >
         <div class="error-message" id="email-error" style="display: none; color: red;">Please enter a valid email</div>
       </div>
   
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" >
         <div class="error-message" id="password-error" style="display: none; color: red;">Please enter a password</div>
       </div>
   
       <div class="button-container">
-        <button onclick="validateForm()">SigIn</button>
+        <button type="submit">SigIn</button>
       </div>
-      <p>Don't have an account? <a href="signup">Sign up</a></p>
-      <p>Sign in with Admin <a href="adminlogin">Sign up</a></p>
+      <% if(typeof message !== 'undefined') { %>
+        <p class="messageText"> <%= message %> </p>
+      <% } %>
+      <p class="actionText">Don't have an account? <a href="/signup">Sign up</a></p>
+      <p class="actionText">Sign in with Admin <a href="/adminlogin">Sign up</a></p>
     </form>
     <%- include("Loading.ejs") %>
+  </div>
     <script>
       const loadingComponent = document.getElementById('loadingOverlay');
       loadingComponent.style.display = 'none';
       
-      function validateForm() {
+      function validateForm(event) {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
   
@@ -44,6 +52,7 @@
         passwordError.style.display = !password ? 'block' : 'none';
   
         if (!email || !password) {
+          event.preventDefault();
           return;
         }
           loadingComponent.style.display = 'flex';

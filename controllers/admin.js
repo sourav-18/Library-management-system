@@ -10,25 +10,21 @@ const handleSignIn=async(req,res)=>{
     try {
         const { name, password } = req.body;
         if (!name || !password) {
-          return res.status(200).json({ message: "fill all data" });
+          return res.redirect("/adminlogin?message=fill the data correctly")
         }
         const data = await Admin.findOne({ name });
         if(!data)
-        return res.status(404).json({message:"Admin not Exist"})
+        return res.redirect("/adminlogin?message=Admin not Exist")
         if (data) {
           bcrypt.compare(password, data.password, (err, result) => {
             if (err)
-              return res
-                .status(500)
-                .json({ message: "something worng try aganin later" });
+            return res.redirect("/adminlogin?message=something worng try aganin later")
             if (result) {
               var token = jwt.sign({ admin:data },ADMIN_PRIVATEKEY);
               res.cookie("auth_info",JSON.stringify({token,role:"admin"}))
-              res
-                .status(200)
-                .json({ message: "admin successfuly login" });
+              return res.redirect("/adminlogin?message=admin successfuly login")
             }else {
-                res.status(200).json({ message: "password is not correct" });
+              return res.redirect("/adminlogin?message=password is not correct")
               }
           });
         }
@@ -39,12 +35,12 @@ const handleSignIn=async(req,res)=>{
 }
 const handleNewBookAdd=async(req,res)=>{
     try{
-        const {name,description,author,stock}=req.body;
+        const {name,description,author,stock,category}=req.body;
         if(!req.file){
           res.render("Message",{ message: "something worng try aganin later" })
         }
         const image_url=req.file.filename;
-        if(!name||!description||!author||!image_url||!stock){
+        if(!name||!description||!author||!image_url||!stock||!category){
             return res.status(200).json({ message: "fill all data" });
         }
        const data=await Book.create({

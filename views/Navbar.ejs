@@ -5,12 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../style/Navbar.css">
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="../style/message.css">
 </head>
 <body>
+  <div class="message" ></div>
+  <% if (typeof message !== 'undefined') { %>
+    <script>
+    function showMessage(message) {
+      if(message){
+       const messageDiv = document.querySelector('.message');
+         messageDiv.textContent = message;
+         messageDiv.innerHTML=`<p>${message}</p><i class="fa-solid fa-check"></i>`;
+         
+         messageDiv.classList.add('activeAlert'); // Fix: Use classList.add() instead of assigning
+         setTimeout(() => {
+           messageDiv.classList.remove('activeAlert');
+         }, 3000);
+        }
+     }
+     setTimeout(()=>{
+        showMessage('<%= message %>'); // This will call showMessage function with the 'message' variable from EJS
+     },10)
+    </script>
+  <% } %>
     <nav class="navbar">
-
+      <a href="/" >
         <h3 class="navbar-title">Librario Mate</h3>
+      </a>
         <a class="small-screen open">
          <i></i>
         </a>

@@ -9,59 +9,51 @@ const handleSignUp=async(req,res)=>{
     try {
         const {name,password,email}=req.body;
         if (!name || !email || !password)
-          return res.status(400).json({ message: "fill the data correctly" });
+        return res.redirect("/signup?message=fill the data correctly")
         const isExistuser = await User.findOne({ email });
         if (isExistuser) {
-          return res.status(403).json({ message: "user allready exist" });
+          return res.redirect("/signup?message=user allready exist")
         }
         bcrypt.hash(password, 10, async (err, hash) => {
           if (err) {
             console.log("error from password hashing ", err);
-            return res
-              .status(500)
-              .json({ message: "something worng try aganin later" });
+            return res.redirect("/signup?message=something worng try aganin later")
           }
           const userData = await User.create({
             name,
             email,
             password: hash,
           });
-          return res.status(201).json({ message: "user successfuly added",success:true });
+          return res.redirect("/signin?action=user successfuly added")
         });
       } catch (error) {
         console.log("error from handleAdduser", error);
-        return res
-          .status(500)
-          .json({ message: "something worng try aganin later" });
+        return res.redirect("/signup?message=something worng try aganin later")
       }
 }
 const handleSignIn=async(req,res)=>{
     try {
         const { email, password } = req.body;
         if (!email || !password)
-          return res.status(400).json({ message: "fill the data correctly" });
+          return res.redirect("/signin?message=fill the data correctly")
         const user = await User.findOne({ email });
         if (!user) {
-          return res.status(404).json({ message: "user not exist" });
+          return res.redirect("/signin?message=user not exist")
         }
         bcrypt.compare(password, user.password, (err, result) => {
           if (err)
-            return res
-              .status(500)
-              .json({ message: "something worng try aganin later" });
+            return res.redirect("/signin?message=something worng try aganin later")
           if (result) {
             var token = jwt.sign({ user },JWT_PRIVATEKEY);
             res.cookie("auth_info",JSON.stringify({token,role:"user"}))
-            res.render("Home")
+            return res.redirect(`/?message=hi ${user.name}`)
           } else {
-            res.status(200).json({ message: "password is not correct" });
+            return res.redirect("/signin?message=password is not correct")
           }
         });
       } catch (error) {
         console.log("error from user loginHandler ", error);
-        return res
-          .status(500)
-          .json({ message: "something worng try aganin later" });
+        return res.redirect("/signin?message=something worng try aganin later")
       }
 }
 const test=async(req,res)=>{

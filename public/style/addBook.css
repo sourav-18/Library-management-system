@@ -1,11 +1,12 @@
 
 /* Basic styling for the form */
-body {
+
+.addbook_container{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+
+  margin-top: 30px;
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
 }
@@ -32,25 +33,12 @@ input[type="text"],
 input[type="number"],
 input[type="file"] {
   width: calc(100% - 20px);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-input[type="text"]:invalid,
-input[type="number"]:invalid,
-input[type="file"]:invalid {
-  border-color: red;
-}
-
-input[type="text"]:invalid + span,
-input[type="number"]:invalid + span,
-input[type="file"]:invalid + span {
-  display: block;
-  color: red;
-  font-size: 12px;
-}
 
 button {
   width: 100%;
@@ -78,4 +66,15 @@ input:valid + span {
   input[type="file"] {
     width: calc(100% - 20px);
   }
+}
+.error-message{
+  color: #ff5252;
+  display: none;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  position: absolute;
+    bottom: 0px;
+}
+.input-item{
+  position: relative;
 }

@@ -26,9 +26,13 @@ const book=new mongoose.Schema({
         type:String,
         require:true,
     },
-    time:{
+    category:{
+        type:String,
+        require:true,
+    },
+    addingDate:{
         type:Number,
-        default:Date.now()
+        default:Date.now(),
     }
 })
 const Book=mongoose.model("Book",book)

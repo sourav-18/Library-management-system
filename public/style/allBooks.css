@@ -1,0 +1,162 @@
+*{
+    box-sizing: border-box;
+}
+.all_book_container{
+    width: 82vw;
+    /* background-color: rgb(37, 26, 47,0.5); */
+    margin: 2rem auto;
+    padding: 1rem;
+}
+.search_all_book_item{
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+.book_search_input{
+    width: 40%;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.4s ease-in-out width;
+    border: 1px solid #aba3a3;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.book_search_input:focus{
+    outline: none;
+}
+.search_btn{
+    width: 10%;
+    background: #332e2e;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+.search_btn:hover{
+    background-color: #3d3636;
+}
+.search_btn{
+    
+    font-size: 1.3rem;
+    color: #fbfbfb;
+}
+/* ---------------------all_book_container seciton-------------- */
+.all_book_card_container{
+    display: grid;
+    gap: 1rem;
+    margin-top: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    /* background-color: #332e2e1a; */
+}
+.all_book_single_card{
+    position: relative;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 4px;
+}
+.image_card_single_book{
+    border-radius: inherit;
+    width: 100%;
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+}
+.image_single_book{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: 0.4s ease-in-out;
+}
+.all_book_single_card:hover .image_single_book{
+    transform: scale(1.2);
+}
+.single_card_info{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(41, 39, 39); */
+    /* color: white; */
+}
+.single_card_title{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #454141;
+    margin-bottom: 3px;
+}
+.single_card_author_info{
+    display: flex;
+    font-size: 0.7rem;
+}
+.author_title,.rating_title{
+    font-weight: 500;
+    margin-right: 3px;
+}
+.single_card_rating{
+display: flex;
+font-size: 0.7rem;
+align-items: center;
+margin-bottom: 3px;
+}
+.author_name{
+    color: #444040;;
+}
+.number_of_rating{
+    margin-left: 3px;
+    color: #444040;
+}
+.star_icon_card{
+    color: rgb(220, 69, 14);
+    
+}
+.single_card_desc{
+    color: #444040;
+    font-size: 0.8rem;
+    word-break: break-all;
+    line-height: 1.1rem;
+}
+.add_to_wishlist_btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #f5d963;
+    padding: 3px;
+    border-radius: 3px;
+    color: #976304;
+
+}
+.single_card_btn{
+    background: #332e2e;
+    color: white;
+    border: none;
+    padding: 4px 11px;
+    border-radius: 2px;
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 0.7rem;
+}
+@media (max-width:1050px){
+    .all_book_card_container{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (max-width:750px){
+    .all_book_card_container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:450px){
+    .all_book_card_container{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .search_btn {
+        font-size: 1rem;
+        width: 20%;
+    }
+    .book_search_input{
+        width: 60%;
+    }
+
+}

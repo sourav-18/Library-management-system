@@ -6,6 +6,8 @@
  <link rel="stylesheet" href="../style/signup.css">
 </head>
 <body>
+  <%- include('Navbar.ejs') %>
+  <div class="formCard">
     <form class="signup-form" action="admin/signin" method="post" >
         <h2>SignIn</h2>
   
@@ -24,10 +26,14 @@
       <div class="button-container">
         <button onclick="validateForm()">SigIn</button>
       </div>
-      <p>Login With User <a href="signin">Signin</a></p>
+      <% if(typeof message !== 'undefined') { %>
+        <p class="messageText"> <%= message %> </p>
+      <% } %>
+      <p class="actionText">Login With User <a href="signin">Signin</a></p>
     </form>
   
     <%- include("Loading.ejs") %>
+    </div>
     <script>
        const loadingComponent = document.getElementById('loadingOverlay');
       loadingComponent.style.display = 'none';
